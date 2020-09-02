@@ -4,8 +4,13 @@ import {Letter} from './Letter';
 import {Number} from './Number';
 
 export class Board extends React.Component {
-  renderSquare() {
-    return <Square />;
+  constructor(props) {
+    super(props);
+    this.choosedNumber = Math.floor(Math.random() * 9) + 1;
+  }
+
+  renderSquare(value) {
+    return <Square value={value} number={this.choosedNumber} />;
   }
   renderNumber(number) {
     return <Number value={number} />;
@@ -23,21 +28,21 @@ export class Board extends React.Component {
         </div>
         <div className="board-row">
           {this.renderNumber(1)}
-          {this.renderSquare()}
-          {this.renderSquare()}
-          {this.renderSquare()}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+          {this.renderSquare(3)}
         </div>
         <div className="board-row">
           {this.renderNumber(2)}
-          {this.renderSquare()}
-          {this.renderSquare()}
-          {this.renderSquare()}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+          {this.renderSquare(6)}
         </div>
         <div className="board-row">
           {this.renderNumber(3)}
-          {this.renderSquare()}
-          {this.renderSquare()}
-          {this.renderSquare()}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+          {this.renderSquare(9)}
         </div>
       </div>
     );

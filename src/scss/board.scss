@@ -1,0 +1,63 @@
+.square {
+    position: relative;
+    background: #9f0aea;
+    border: 1px solid #9f99a0;
+    border-radius: 3px;
+    margin-left: 10px;
+    box-shadow: 2px 2px 3px 0px;
+    height: 90px;
+    width: 90px;
+
+    .start {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+    }
+}
+
+.square:focus,
+.letter:focus,
+.number:focus {
+    outline: none;
+}
+
+.letter {
+    background: #0a51ea;
+    border: 1px solid #9f99a0;
+    border-radius: 2px;
+    margin-left: 10px;
+    box-shadow: 2px 2px 3px 0px;
+    height: 20px;
+    width: 90px;
+}
+
+.number {
+    background: #0a51ea;
+    border: 1px solid #9f99a0;
+    border-radius: 2px;
+    margin-left: 10px;
+    box-shadow: 2px 2px 3px 0px;
+    height: 90px;
+    width: 20px;
+}
+
+.board-row:first-child {
+    margin-left: 30px;
+}
+
+.kbd-navigation .square:focus {
+    background: rgb(192, 7, 7);
+}
+
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.board {
+    position: relative;
+    top: 20px;
+}

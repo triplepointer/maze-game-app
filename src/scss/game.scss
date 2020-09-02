@@ -1,0 +1,10 @@
+.game {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    background: #ccc url(../images/background-img.jpg);
+}
+
+.game-info {
+    margin-left: 20px;
+}

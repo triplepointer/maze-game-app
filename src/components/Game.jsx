@@ -1,7 +1,7 @@
-import React from 'react';
-import { Board } from './Board';
-import { Header } from './Header';
-import { Footer } from './Footer';
+import React from 'react'
+import Board from './Board'
+import { Header } from './Header'
+import Footer from './Footer'
 
 export class Game extends React.Component {
   render() {
@@ -19,6 +19,6 @@ export class Game extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

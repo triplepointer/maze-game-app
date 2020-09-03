@@ -1,22 +1,18 @@
-import React from 'react';
-import {Square} from './Square';
-import {Letter} from './Letter';
-import {Number} from './Number';
+import React from 'react'
+import { Square } from './Square'
+import { Letter } from './Letter'
+import { Number } from './Number'
+import { connect } from 'react-redux'
 
-export class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.choosedNumber = Math.floor(Math.random() * 9) + 1;
-  }
-
+class Board extends React.Component {
   renderSquare(value) {
-    return <Square value={value} number={this.choosedNumber} />;
+    return <Square value={value} number={this.props.choosedNumber} />
   }
   renderNumber(number) {
-    return <Number value={number} />;
+    return <Number value={number} />
   }
   renderLetter(letter) {
-    return <Letter value={letter} />;
+    return <Letter value={letter} />
   }
   render() {
     return (
@@ -45,6 +41,15 @@ export class Board extends React.Component {
           {this.renderSquare(9)}
         </div>
       </div>
-    );
+    )
   }
 }
+
+const mapStateToProps = (store) => {
+  console.log(store)
+  return {
+    choosedNumber: store.board.choosedNumber,
+  }
+}
+
+export default connect(mapStateToProps)(Board)

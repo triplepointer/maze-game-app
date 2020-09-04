@@ -14,8 +14,7 @@ export class Game extends React.Component {
             <Footer />
           </div>
           <div className="game-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
+            <button className="next">Далее</button>
           </div>
         </div>
       </div>

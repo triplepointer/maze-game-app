@@ -5,8 +5,23 @@ import { Number } from './Number'
 import { connect } from 'react-redux'
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props)
+    this.onClickButton = this.onClickButton.bind(this)
+    this.state = { isClicked: false }
+  }
+  onClickButton() {
+    this.setState({ isClicked: true })
+  }
   renderSquare(value) {
-    return <Square value={value} number={this.props.choosedNumber} />
+    return (
+      <Square
+        isClicked={this.state.isClicked}
+        onClickButton={this.onClickButton}
+        value={value}
+        number={this.props.choosedNumber}
+      />
+    )
   }
   renderNumber(number) {
     return <Number value={number} />

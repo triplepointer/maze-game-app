@@ -4,20 +4,12 @@ import { Letter } from './Letter'
 import { Number } from './Number'
 import { connect } from 'react-redux'
 
-class Board extends React.Component {
-  constructor(props) {
-    super(props)
-    this.onClickButton = this.onClickButton.bind(this)
-    this.state = { isClicked: false }
-  }
-  onClickButton() {
-    this.setState({ isClicked: true })
-  }
+export class Board extends React.Component {
   renderSquare(value) {
     return (
       <Square
-        isClicked={this.state.isClicked}
-        onClickButton={this.onClickButton}
+        isClicked={this.props.isClicked}
+        onClickButton={this.props.onClickButton}
         value={value}
         number={this.props.choosedNumber}
       />
@@ -59,12 +51,3 @@ class Board extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (store) => {
-  console.log(store)
-  return {
-    choosedNumber: store.board.choosedNumber,
-  }
-}
-
-export default connect(mapStateToProps)(Board)

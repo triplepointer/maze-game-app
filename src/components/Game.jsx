@@ -1,7 +1,7 @@
 import React from 'react'
-import Board from './Board'
+import { Board } from './Board'
 import { Header } from './Header'
-import Footer from './Footer'
+import { Footer } from './Footer'
 import { Modal } from './Modal'
 
 export class Game extends React.Component {
@@ -10,15 +10,24 @@ export class Game extends React.Component {
     this.showModal = this.showModal.bind(this)
     this.hideModal = this.hideModal.bind(this)
     this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
+    this.onClickButton = this.onClickButton.bind(this)
   }
   state = {
     show: true,
+    isClicked: false,
+    choosedNumber: Math.floor(Math.random() * 9) + 1,
+  }
+  onClickButton() {
+    this.setState({ isClicked: true })
   }
   showModal() {
     this.setState({ show: true })
   }
   forceUpdateHandler() {
-    window.location.reload(false)
+    this.setState({
+      isClicked: false,
+      choosedNumber: Math.floor(Math.random() * 9) + 1,
+    })
   }
 
   hideModal() {
@@ -33,8 +42,12 @@ export class Game extends React.Component {
           <div className="container">
             <div className="game-board">
               <Header />
-              <Board />
-              <Footer />
+              <Board
+                choosedNumber={this.state.choosedNumber}
+                isClicked={this.state.isClicked}
+                onClickButton={this.onClickButton}
+              />
+              <Footer choosedNumber={this.state.choosedNumber} />
             </div>
             <div className="game-info">
               <h1></h1>

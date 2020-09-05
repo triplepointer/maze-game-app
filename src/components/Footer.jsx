@@ -2,7 +2,7 @@ import React from 'react'
 import Delayed from './Delayed'
 import { connect } from 'react-redux'
 
-class Footer extends React.Component {
+export class Footer extends React.Component {
   arrowUp() {
     return (
       <svg
@@ -315,12 +315,3 @@ class Footer extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (store) => {
-  return {
-    endSquare: store.footer.endSquare,
-    choosedNumber: store.board.choosedNumber,
-  }
-}
-
-export default connect(mapStateToProps)(Footer)

@@ -6,6 +6,7 @@ export class Square extends React.Component {
     super(props)
     this.state = { isClickedHere: false }
   }
+
   renderLikeOrDislike() {
     let endNumber
     if (

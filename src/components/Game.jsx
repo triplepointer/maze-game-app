@@ -3,6 +3,7 @@ import { Board } from './Board'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Modal } from './Modal'
+import music from '../music/massive_attack_and_mos_def-i_against_i.mp3'
 
 export class Game extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export class Game extends React.Component {
     this.hideModal = this.hideModal.bind(this)
     this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
     this.onClickButton = this.onClickButton.bind(this)
+    this.audioToggle = true
   }
   state = {
     show: true,
@@ -34,6 +36,11 @@ export class Game extends React.Component {
     this.setState((prevState) => {
       return { show: false }
     })
+    if (this.audioToggle) {
+      var audio = new Audio(music)
+      audio.play()
+      this.audioToggle = false
+    }
   }
   render() {
     return (

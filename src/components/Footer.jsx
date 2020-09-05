@@ -62,6 +62,7 @@ export class Footer extends React.Component {
       <div className="footer">
         <div className="footer-row">
           <div className="arrow-square">
+            <div className="arrow-number">1</div>
             <Delayed waitBeforeShow={1000}>
               {currentSquare === 1
                 ? this.arrowRight()
@@ -86,6 +87,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">2</div>
             <Delayed waitBeforeShow={2000}>
               {' '}
               {currentSquare === 1
@@ -111,6 +113,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">3</div>
             <Delayed waitBeforeShow={3000}>
               {' '}
               {currentSquare === 1
@@ -136,6 +139,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">4</div>
             <Delayed waitBeforeShow={4000}>
               {' '}
               {currentSquare === 1
@@ -161,6 +165,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">5</div>
             <Delayed waitBeforeShow={5000}>
               {' '}
               {currentSquare === 1
@@ -187,6 +192,7 @@ export class Footer extends React.Component {
         </div>
         <div className="footer-row">
           <div className="arrow-square">
+            <div className="arrow-number">6</div>
             <Delayed waitBeforeShow={6000}>
               {' '}
               {currentSquare === 1
@@ -212,6 +218,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">7</div>
             <Delayed waitBeforeShow={7000}>
               {' '}
               {currentSquare === 1
@@ -237,6 +244,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">8</div>
             <Delayed waitBeforeShow={8000}>
               {' '}
               {currentSquare === 1
@@ -262,6 +270,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">9</div>
             <Delayed waitBeforeShow={9000}>
               {' '}
               {currentSquare === 1
@@ -287,6 +296,7 @@ export class Footer extends React.Component {
           </div>
 
           <div className="arrow-square">
+            <div className="arrow-number">10</div>
             <Delayed waitBeforeShow={10000}>
               {' '}
               {currentSquare === 1

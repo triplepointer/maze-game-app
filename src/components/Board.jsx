@@ -2,52 +2,102 @@ import React from 'react'
 import { Square } from './Square'
 import { Letter } from './Letter'
 import { Number } from './Number'
-import { connect } from 'react-redux'
 
-export class Board extends React.Component {
-  renderSquare(value) {
-    return (
-      <Square
-        isClicked={this.props.isClicked}
-        onClickButton={this.props.onClickButton}
-        value={value}
-        number={this.props.choosedNumber}
-      />
-    )
-  }
-  renderNumber(number) {
+export function Board(props) {
+  const renderNumber = (number) => {
     return <Number value={number} />
   }
-  renderLetter(letter) {
+  const renderLetter = (letter) => {
     return <Letter value={letter} />
   }
-  render() {
-    return (
-      <div className="board">
-        <div className="board-row">
-          {this.renderLetter('A')}
-          {this.renderLetter('B')}
-          {this.renderLetter('C')}
-        </div>
-        <div className="board-row">
-          {this.renderNumber(1)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-          {this.renderSquare(3)}
-        </div>
-        <div className="board-row">
-          {this.renderNumber(2)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-          {this.renderSquare(6)}
-        </div>
-        <div className="board-row">
-          {this.renderNumber(3)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-          {this.renderSquare(9)}
-        </div>
+  return (
+    <div className="board">
+      <div className="board-row">
+        {renderLetter('A')}
+        {renderLetter('B')}
+        {renderLetter('C')}
       </div>
-    )
-  }
+      <div className="board-row">
+        {renderNumber(1)}
+        <Square
+          onClickHere={props.onClickHere1}
+          isClickedHere={props.isClickedHere1}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={1}
+          number={props.choosedNumber}
+        />
+        <Square
+          onClickHere={props.onClickHere2}
+          isClickedHere={props.isClickedHere2}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={2}
+          number={props.choosedNumber}
+        />
+        <Square
+          onClickHere={props.onClickHere3}
+          isClickedHere={props.isClickedHere3}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={3}
+          number={props.choosedNumber}
+        />
+      </div>
+      <div className="board-row">
+        {renderNumber(2)}
+        <Square
+          onClickHere={props.onClickHere4}
+          isClickedHere={props.isClickedHere4}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={4}
+          number={props.choosedNumber}
+        />
+        <Square
+          onClickHere={props.onClickHere5}
+          isClickedHere={props.isClickedHere5}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={5}
+          number={props.choosedNumber}
+        />
+        <Square
+          onClickHere={props.onClickHere6}
+          isClickedHere={props.isClickedHere6}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={6}
+          number={props.choosedNumber}
+        />
+      </div>
+      <div className="board-row">
+        {renderNumber(3)}
+        <Square
+          onClickHere={props.onClickHere7}
+          isClickedHere={props.isClickedHere7}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={7}
+          number={props.choosedNumber}
+        />
+        <Square
+          onClickHere={props.onClickHere8}
+          isClickedHere={props.isClickedHere8}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={8}
+          number={props.choosedNumber}
+        />
+        <Square
+          onClickHere={props.onClickHere9}
+          isClickedHere={props.isClickedHere9}
+          isClicked={props.isClicked}
+          onClickButton={props.onClickButton}
+          value={9}
+          number={props.choosedNumber}
+        />
+      </div>
+    </div>
+  )
 }

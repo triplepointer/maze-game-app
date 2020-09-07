@@ -1,9 +1,8 @@
 import React from 'react'
 import Delayed from './Delayed'
-import { connect } from 'react-redux'
 
-export class Footer extends React.Component {
-  arrowUp() {
+export function Footer(props) {
+  const arrowUp = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +15,7 @@ export class Footer extends React.Component {
       </svg>
     )
   }
-  arrowDown() {
+  const arrowDown = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +28,7 @@ export class Footer extends React.Component {
       </svg>
     )
   }
-  arrowLeft() {
+  const arrowLeft = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +41,7 @@ export class Footer extends React.Component {
       </svg>
     )
   }
-  arrowRight() {
+  const arrowRight = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -55,273 +54,270 @@ export class Footer extends React.Component {
       </svg>
     )
   }
-
-  render() {
-    let currentSquare = this.props.choosedNumber
-    return (
-      <div className="footer">
-        <div className="footer-row">
-          <div className="arrow-square">
-            <div className="arrow-number">1</div>
-            <Delayed waitBeforeShow={1000}>
-              {currentSquare === 1
-                ? this.arrowRight()
-                : currentSquare === 2
-                ? this.arrowLeft()
-                : currentSquare === 3
-                ? this.arrowLeft()
-                : currentSquare === 4
-                ? this.arrowRight()
-                : currentSquare === 5
-                ? this.arrowRight()
-                : currentSquare === 6
-                ? this.arrowUp()
-                : currentSquare === 7
-                ? this.arrowRight()
-                : currentSquare === 8
-                ? this.arrowLeft()
-                : currentSquare === 9
-                ? this.arrowUp()
-                : ''}
-            </Delayed>
-          </div>
-
-          <div className="arrow-square">
-            <div className="arrow-number">2</div>
-            <Delayed waitBeforeShow={2000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowDown()
-                : currentSquare === 2
-                ? this.arrowDown()
-                : currentSquare === 3
-                ? this.arrowDown()
-                : currentSquare === 4
-                ? this.arrowUp()
-                : currentSquare === 5
-                ? this.arrowUp()
-                : currentSquare === 6
-                ? this.arrowDown()
-                : currentSquare === 7
-                ? this.arrowUp()
-                : currentSquare === 8
-                ? this.arrowUp()
-                : currentSquare === 9
-                ? this.arrowUp()
-                : ''}{' '}
-            </Delayed>
-          </div>
-
-          <div className="arrow-square">
-            <div className="arrow-number">3</div>
-            <Delayed waitBeforeShow={3000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowRight()
-                : currentSquare === 2
-                ? this.arrowRight()
-                : currentSquare === 3
-                ? this.arrowRight()
-                : currentSquare === 4
-                ? this.arrowLeft()
-                : currentSquare === 5
-                ? this.arrowDown()
-                : currentSquare === 6
-                ? this.arrowDown()
-                : currentSquare === 7
-                ? this.arrowUp()
-                : currentSquare === 8
-                ? this.arrowRight()
-                : currentSquare === 9
-                ? this.arrowLeft()
-                : ''}{' '}
-            </Delayed>
-          </div>
-
-          <div className="arrow-square">
-            <div className="arrow-number">4</div>
-            <Delayed waitBeforeShow={4000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowUp()
-                : currentSquare === 2
-                ? this.arrowUp()
-                : currentSquare === 3
-                ? this.arrowUp()
-                : currentSquare === 4
-                ? this.arrowDown()
-                : currentSquare === 5
-                ? this.arrowDown()
-                : currentSquare === 6
-                ? this.arrowUp()
-                : currentSquare === 7
-                ? this.arrowLeft()
-                : currentSquare === 8
-                ? this.arrowUp()
-                : currentSquare === 9
-                ? this.arrowDown()
-                : ''}
-            </Delayed>
-          </div>
-
-          <div className="arrow-square">
-            <div className="arrow-number">5</div>
-            <Delayed waitBeforeShow={5000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowDown()
-                : currentSquare === 2
-                ? this.arrowRight()
-                : currentSquare === 3
-                ? this.arrowLeft()
-                : currentSquare === 4
-                ? this.arrowDown()
-                : currentSquare === 5
-                ? this.arrowLeft()
-                : currentSquare === 6
-                ? this.arrowLeft()
-                : currentSquare === 7
-                ? this.arrowDown()
-                : currentSquare === 8
-                ? this.arrowLeft()
-                : currentSquare === 9
-                ? this.arrowRight()
-                : ''}{' '}
-            </Delayed>
-          </div>
+  let currentSquare = props.choosedNumber
+  return (
+    <div className="footer">
+      <div className="footer-row">
+        <div className="arrow-square">
+          <div className="arrow-number">1</div>
+          <Delayed waitBeforeShow={1000}>
+            {currentSquare === 1
+              ? arrowRight()
+              : currentSquare === 2
+              ? arrowLeft()
+              : currentSquare === 3
+              ? arrowLeft()
+              : currentSquare === 4
+              ? arrowRight()
+              : currentSquare === 5
+              ? arrowRight()
+              : currentSquare === 6
+              ? arrowUp()
+              : currentSquare === 7
+              ? arrowRight()
+              : currentSquare === 8
+              ? arrowLeft()
+              : currentSquare === 9
+              ? arrowUp()
+              : ''}
+          </Delayed>
         </div>
-        <div className="footer-row">
-          <div className="arrow-square">
-            <div className="arrow-number">6</div>
-            <Delayed waitBeforeShow={6000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowDown()
-                : currentSquare === 2
-                ? this.arrowDown()
-                : currentSquare === 3
-                ? this.arrowDown()
-                : currentSquare === 4
-                ? this.arrowRight()
-                : currentSquare === 5
-                ? this.arrowLeft()
-                : currentSquare === 6
-                ? this.arrowUp()
-                : currentSquare === 7
-                ? this.arrowRight()
-                : currentSquare === 8
-                ? this.arrowDown()
-                : currentSquare === 9
-                ? this.arrowDown()
-                : ''}{' '}
-            </Delayed>
-          </div>
 
-          <div className="arrow-square">
-            <div className="arrow-number">7</div>
-            <Delayed waitBeforeShow={7000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowLeft()
-                : currentSquare === 2
-                ? this.arrowDown()
-                : currentSquare === 3
-                ? this.arrowRight()
-                : currentSquare === 4
-                ? this.arrowUp()
-                : currentSquare === 5
-                ? this.arrowUp()
-                : currentSquare === 6
-                ? this.arrowDown()
-                : currentSquare === 7
-                ? this.arrowDown()
-                : currentSquare === 8
-                ? this.arrowRight()
-                : currentSquare === 9
-                ? this.arrowLeft()
-                : ''}{' '}
-            </Delayed>
-          </div>
+        <div className="arrow-square">
+          <div className="arrow-number">2</div>
+          <Delayed waitBeforeShow={2000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowDown()
+              : currentSquare === 2
+              ? arrowDown()
+              : currentSquare === 3
+              ? arrowDown()
+              : currentSquare === 4
+              ? arrowUp()
+              : currentSquare === 5
+              ? arrowUp()
+              : currentSquare === 6
+              ? arrowDown()
+              : currentSquare === 7
+              ? arrowUp()
+              : currentSquare === 8
+              ? arrowUp()
+              : currentSquare === 9
+              ? arrowUp()
+              : ''}{' '}
+          </Delayed>
+        </div>
 
-          <div className="arrow-square">
-            <div className="arrow-number">8</div>
-            <Delayed waitBeforeShow={8000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowUp()
-                : currentSquare === 2
-                ? this.arrowUp()
-                : currentSquare === 3
-                ? this.arrowUp()
-                : currentSquare === 4
-                ? this.arrowUp()
-                : currentSquare === 5
-                ? this.arrowRight()
-                : currentSquare === 6
-                ? this.arrowDown()
-                : currentSquare === 7
-                ? this.arrowRight()
-                : currentSquare === 8
-                ? this.arrowRight()
-                : currentSquare === 9
-                ? this.arrowLeft()
-                : ''}{' '}
-            </Delayed>
-          </div>
+        <div className="arrow-square">
+          <div className="arrow-number">3</div>
+          <Delayed waitBeforeShow={3000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowRight()
+              : currentSquare === 2
+              ? arrowRight()
+              : currentSquare === 3
+              ? arrowRight()
+              : currentSquare === 4
+              ? arrowLeft()
+              : currentSquare === 5
+              ? arrowDown()
+              : currentSquare === 6
+              ? arrowDown()
+              : currentSquare === 7
+              ? arrowUp()
+              : currentSquare === 8
+              ? arrowRight()
+              : currentSquare === 9
+              ? arrowLeft()
+              : ''}{' '}
+          </Delayed>
+        </div>
 
-          <div className="arrow-square">
-            <div className="arrow-number">9</div>
-            <Delayed waitBeforeShow={9000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowDown()
-                : currentSquare === 2
-                ? this.arrowLeft()
-                : currentSquare === 3
-                ? this.arrowLeft()
-                : currentSquare === 4
-                ? this.arrowRight()
-                : currentSquare === 5
-                ? this.arrowUp()
-                : currentSquare === 6
-                ? this.arrowLeft()
-                : currentSquare === 7
-                ? this.arrowUp()
-                : currentSquare === 8
-                ? this.arrowLeft()
-                : currentSquare === 9
-                ? this.arrowUp()
-                : ''}{' '}
-            </Delayed>
-          </div>
+        <div className="arrow-square">
+          <div className="arrow-number">4</div>
+          <Delayed waitBeforeShow={4000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowUp()
+              : currentSquare === 2
+              ? arrowUp()
+              : currentSquare === 3
+              ? arrowUp()
+              : currentSquare === 4
+              ? arrowDown()
+              : currentSquare === 5
+              ? arrowDown()
+              : currentSquare === 6
+              ? arrowUp()
+              : currentSquare === 7
+              ? arrowLeft()
+              : currentSquare === 8
+              ? arrowUp()
+              : currentSquare === 9
+              ? arrowDown()
+              : ''}
+          </Delayed>
+        </div>
 
-          <div className="arrow-square">
-            <div className="arrow-number">10</div>
-            <Delayed waitBeforeShow={10000}>
-              {' '}
-              {currentSquare === 1
-                ? this.arrowLeft()
-                : currentSquare === 2
-                ? this.arrowRight()
-                : currentSquare === 3
-                ? this.arrowDown()
-                : currentSquare === 4
-                ? this.arrowLeft()
-                : currentSquare === 5
-                ? this.arrowLeft()
-                : currentSquare === 6
-                ? this.arrowUp()
-                : currentSquare === 7
-                ? this.arrowUp()
-                : currentSquare === 8
-                ? this.arrowLeft()
-                : currentSquare === 9
-                ? this.arrowUp()
-                : ''}{' '}
-            </Delayed>
-          </div>
+        <div className="arrow-square">
+          <div className="arrow-number">5</div>
+          <Delayed waitBeforeShow={5000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowDown()
+              : currentSquare === 2
+              ? arrowRight()
+              : currentSquare === 3
+              ? arrowLeft()
+              : currentSquare === 4
+              ? arrowDown()
+              : currentSquare === 5
+              ? arrowLeft()
+              : currentSquare === 6
+              ? arrowLeft()
+              : currentSquare === 7
+              ? arrowDown()
+              : currentSquare === 8
+              ? arrowLeft()
+              : currentSquare === 9
+              ? arrowRight()
+              : ''}{' '}
+          </Delayed>
         </div>
       </div>
-    )
-  }
+      <div className="footer-row">
+        <div className="arrow-square">
+          <div className="arrow-number">6</div>
+          <Delayed waitBeforeShow={6000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowDown()
+              : currentSquare === 2
+              ? arrowDown()
+              : currentSquare === 3
+              ? arrowDown()
+              : currentSquare === 4
+              ? arrowRight()
+              : currentSquare === 5
+              ? arrowLeft()
+              : currentSquare === 6
+              ? arrowUp()
+              : currentSquare === 7
+              ? arrowRight()
+              : currentSquare === 8
+              ? arrowDown()
+              : currentSquare === 9
+              ? arrowDown()
+              : ''}{' '}
+          </Delayed>
+        </div>
+
+        <div className="arrow-square">
+          <div className="arrow-number">7</div>
+          <Delayed waitBeforeShow={7000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowLeft()
+              : currentSquare === 2
+              ? arrowDown()
+              : currentSquare === 3
+              ? arrowRight()
+              : currentSquare === 4
+              ? arrowUp()
+              : currentSquare === 5
+              ? arrowUp()
+              : currentSquare === 6
+              ? arrowDown()
+              : currentSquare === 7
+              ? arrowDown()
+              : currentSquare === 8
+              ? arrowRight()
+              : currentSquare === 9
+              ? arrowLeft()
+              : ''}{' '}
+          </Delayed>
+        </div>
+
+        <div className="arrow-square">
+          <div className="arrow-number">8</div>
+          <Delayed waitBeforeShow={8000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowUp()
+              : currentSquare === 2
+              ? arrowUp()
+              : currentSquare === 3
+              ? arrowUp()
+              : currentSquare === 4
+              ? arrowUp()
+              : currentSquare === 5
+              ? arrowRight()
+              : currentSquare === 6
+              ? arrowDown()
+              : currentSquare === 7
+              ? arrowRight()
+              : currentSquare === 8
+              ? arrowRight()
+              : currentSquare === 9
+              ? arrowLeft()
+              : ''}{' '}
+          </Delayed>
+        </div>
+
+        <div className="arrow-square">
+          <div className="arrow-number">9</div>
+          <Delayed waitBeforeShow={9000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowDown()
+              : currentSquare === 2
+              ? arrowLeft()
+              : currentSquare === 3
+              ? arrowLeft()
+              : currentSquare === 4
+              ? arrowRight()
+              : currentSquare === 5
+              ? arrowUp()
+              : currentSquare === 6
+              ? arrowLeft()
+              : currentSquare === 7
+              ? arrowUp()
+              : currentSquare === 8
+              ? arrowLeft()
+              : currentSquare === 9
+              ? arrowUp()
+              : ''}{' '}
+          </Delayed>
+        </div>
+
+        <div className="arrow-square">
+          <div className="arrow-number">10</div>
+          <Delayed waitBeforeShow={10000}>
+            {' '}
+            {currentSquare === 1
+              ? arrowLeft()
+              : currentSquare === 2
+              ? arrowRight()
+              : currentSquare === 3
+              ? arrowDown()
+              : currentSquare === 4
+              ? arrowLeft()
+              : currentSquare === 5
+              ? arrowLeft()
+              : currentSquare === 6
+              ? arrowUp()
+              : currentSquare === 7
+              ? arrowUp()
+              : currentSquare === 8
+              ? arrowLeft()
+              : currentSquare === 9
+              ? arrowUp()
+              : ''}{' '}
+          </Delayed>
+        </div>
+      </div>
+    </div>
+  )
 }

@@ -13,11 +13,57 @@ export class Game extends React.Component {
     this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
     this.onClickButton = this.onClickButton.bind(this)
     this.audioToggle = true
+    this.onClickHere1 = this.onClickHere1.bind(this)
+    this.onClickHere2 = this.onClickHere2.bind(this)
+    this.onClickHere3 = this.onClickHere3.bind(this)
+    this.onClickHere4 = this.onClickHere4.bind(this)
+    this.onClickHere5 = this.onClickHere5.bind(this)
+    this.onClickHere6 = this.onClickHere6.bind(this)
+    this.onClickHere7 = this.onClickHere7.bind(this)
+    this.onClickHere8 = this.onClickHere8.bind(this)
+    this.onClickHere9 = this.onClickHere9.bind(this)
   }
   state = {
     show: true,
     isClicked: false,
+    isClickedHere1: false,
+    isClickedHere2: false,
+    isClickedHere3: false,
+    isClickedHere4: false,
+    isClickedHere5: false,
+    isClickedHere6: false,
+    isClickedHere7: false,
+    isClickedHere8: false,
+    isClickedHere9: false,
+
     choosedNumber: Math.floor(Math.random() * 9) + 1,
+  }
+  onClickHere1() {
+    this.setState({ isClickedHere1: true })
+  }
+  onClickHere2() {
+    this.setState({ isClickedHere2: true })
+  }
+  onClickHere3() {
+    this.setState({ isClickedHere3: true })
+  }
+  onClickHere4() {
+    this.setState({ isClickedHere4: true })
+  }
+  onClickHere5() {
+    this.setState({ isClickedHere5: true })
+  }
+  onClickHere6() {
+    this.setState({ isClickedHere6: true })
+  }
+  onClickHere7() {
+    this.setState({ isClickedHere7: true })
+  }
+  onClickHere8() {
+    this.setState({ isClickedHere8: true })
+  }
+  onClickHere9() {
+    this.setState({ isClickedHere9: true })
   }
   onClickButton() {
     this.setState({ isClicked: true })
@@ -27,6 +73,15 @@ export class Game extends React.Component {
   }
   forceUpdateHandler() {
     this.setState({
+      isClickedHere1: false,
+      isClickedHere2: false,
+      isClickedHere3: false,
+      isClickedHere4: false,
+      isClickedHere5: false,
+      isClickedHere6: false,
+      isClickedHere7: false,
+      isClickedHere8: false,
+      isClickedHere9: false,
       isClicked: false,
       choosedNumber: Math.floor(Math.random() * 9) + 1,
     })
@@ -50,6 +105,24 @@ export class Game extends React.Component {
             <div className="game-board">
               <Header />
               <Board
+                isClickedHere1={this.state.isClickedHere1}
+                isClickedHere2={this.state.isClickedHere2}
+                isClickedHere3={this.state.isClickedHere3}
+                isClickedHere4={this.state.isClickedHere4}
+                isClickedHere5={this.state.isClickedHere5}
+                isClickedHere6={this.state.isClickedHere6}
+                isClickedHere7={this.state.isClickedHere7}
+                isClickedHere8={this.state.isClickedHere8}
+                isClickedHere9={this.state.isClickedHere9}
+                onClickHere1={this.onClickHere1}
+                onClickHere2={this.onClickHere2}
+                onClickHere3={this.onClickHere3}
+                onClickHere4={this.onClickHere4}
+                onClickHere5={this.onClickHere5}
+                onClickHere6={this.onClickHere6}
+                onClickHere7={this.onClickHere7}
+                onClickHere8={this.onClickHere8}
+                onClickHere9={this.onClickHere9}
                 choosedNumber={this.state.choosedNumber}
                 isClicked={this.state.isClicked}
                 onClickButton={this.onClickButton}

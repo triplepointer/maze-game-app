@@ -4,7 +4,10 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import { Modal } from './Modal'
 import music from '../music/massive_attack_and_mos_def-i_against_i.mp3'
-
+var audio = new Audio(music)
+audio.addEventListener('ended', () => {
+  audio.play()
+})
 export class Game extends React.Component {
   constructor(props) {
     super(props)
@@ -22,6 +25,7 @@ export class Game extends React.Component {
     this.onClickHere7 = this.onClickHere7.bind(this)
     this.onClickHere8 = this.onClickHere8.bind(this)
     this.onClickHere9 = this.onClickHere9.bind(this)
+    this.toggleMusic = this.toggleMusic.bind(this)
   }
   state = {
     show: true,
@@ -92,7 +96,15 @@ export class Game extends React.Component {
       return { show: false }
     })
     if (this.audioToggle) {
-      var audio = new Audio(music)
+      audio.play()
+      this.audioToggle = false
+    }
+  }
+  toggleMusic() {
+    if (!this.audioToggle) {
+      audio.pause()
+      this.audioToggle = true
+    } else {
       audio.play()
       this.audioToggle = false
     }
@@ -149,6 +161,7 @@ export class Game extends React.Component {
               </button>
 
               <button onClick={this.forceUpdateHandler}>Новая игра</button>
+              <button onClick={this.toggleMusic}>Музыка</button>
             </div>
           </div>
         </div>

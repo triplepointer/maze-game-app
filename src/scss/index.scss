@@ -10,6 +10,13 @@
 body {
     background: url(../images/background-img.jpeg);
     background-size: cover;
+
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
 }
 
 .container {

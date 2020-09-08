@@ -23,6 +23,19 @@
     height: 40px;
 }
 
+.scream {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/scream.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .square:focus,
 .letter:focus,
 .number:focus {

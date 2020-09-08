@@ -10,7 +10,7 @@ export function IsLike(props) {
     // Update the document title using the browser API
     // debugger
     setTimeout(() => {
-      $('.scream').remove()
+      $('.scream').css({ display: 'none' })
     }, 1000)
   })
 
@@ -24,9 +24,10 @@ export function IsLike(props) {
       {props.endNumber && props.isClicked ? (
         <img className="like" src={like} alt="image" />
       ) : props.isClickedHere && props.isClicked && playAudio() ? (
-        <img className="dislike" src={dislike} alt="image" /> && (
+        <>
+          <img className="dislike" src={dislike} alt="image" />
           <div className="scream"></div>
-        )
+        </>
       ) : (
         ''
       )}

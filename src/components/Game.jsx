@@ -157,6 +157,31 @@ export class Game extends React.Component {
     const { isVisibleArrows } = this.state
     return (
       <div>
+        {isVisible ? (
+          <BigBox className="tutorial">
+            <BoxField
+              className="tutorial-field"
+              pose={isVisibleField ? 'visible' : 'hidden'}>
+              <p className="tutorial-field-description">Это игровое поле</p>
+            </BoxField>
+            <BoxField
+              className="tutorial-cell"
+              pose={isVisibleCell ? 'visible' : 'hidden'}>
+              <p className="tutorial-cell-description">
+                Это ячейка игрового поля
+              </p>
+            </BoxField>
+            <BoxField
+              className="tutorial-arrows"
+              pose={isVisibleArrows ? 'visible' : 'hidden'}>
+              <p className="tutorial-arrows-description">
+                Это стрелки, указывающие направления ходов
+              </p>
+            </BoxField>
+          </BigBox>
+        ) : (
+          ''
+        )}
         <div className="game">
           <div className="container">
             <div className="game-board">
@@ -210,31 +235,6 @@ export class Game extends React.Component {
             </div>
           </div>
         </div>
-        {isVisible ? (
-          <BigBox className="tutorial">
-            <BoxField
-              className="tutorial-field"
-              pose={isVisibleField ? 'visible' : 'hidden'}>
-              <p className="tutorial-field-description">Это игровое поле</p>
-            </BoxField>
-            <BoxField
-              className="tutorial-cell"
-              pose={isVisibleCell ? 'visible' : 'hidden'}>
-              <p className="tutorial-cell-description">
-                Это ячейка игрового поля
-              </p>
-            </BoxField>
-            <BoxField
-              className="tutorial-arrows"
-              pose={isVisibleArrows ? 'visible' : 'hidden'}>
-              <p className="tutorial-arrows-description">
-                Это стрелки, указывающие направления ходов
-              </p>
-            </BoxField>
-          </BigBox>
-        ) : (
-          ''
-        )}
       </div>
     )
   }

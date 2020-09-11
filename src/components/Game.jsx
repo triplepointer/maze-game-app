@@ -2,7 +2,6 @@ import React from 'react'
 import { Board } from './Board'
 import { Header } from './Header'
 import { Footer } from './Footer'
-import { Modal } from './Modal'
 import posed from 'react-pose'
 import music from '../music/massive_attack_and_mos_def-i_against_i.mp3'
 var audio = new Audio(music)
@@ -22,11 +21,13 @@ const BigBox = posed.div({
 export class Game extends React.Component {
   constructor(props) {
     super(props)
+    this.timeouts = []
     this.showModal = this.showModal.bind(this)
-    this.hideModal = this.hideModal.bind(this)
+    this.showTutorial = this.showTutorial.bind(this)
     this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
     this.onClickButton = this.onClickButton.bind(this)
     this.audioToggle = true
+    this.flag = true
     this.onClickHere1 = this.onClickHere1.bind(this)
     this.onClickHere2 = this.onClickHere2.bind(this)
     this.onClickHere3 = this.onClickHere3.bind(this)
@@ -38,32 +39,7 @@ export class Game extends React.Component {
     this.onClickHere9 = this.onClickHere9.bind(this)
     this.toggleMusic = this.toggleMusic.bind(this)
   }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        isVisible: !this.state.isVisible,
-        isVisibleField: !this.state.isVisibleField,
-      })
-      setTimeout(() => {
-        this.setState({
-          isVisibleField: !this.state.isVisibleField,
-          isVisibleCell: !this.state.isVisibleCell,
-        })
-        setTimeout(() => {
-          this.setState({
-            isVisibleCell: !this.state.isVisibleCell,
-            isVisibleArrows: !this.state.isVisibleArrows,
-          })
-          setTimeout(() => {
-            this.setState({
-              isVisibleArrows: !this.state.isVisibleArrows,
-              isVisible: !this.state.isVisible,
-            })
-          }, 4000)
-        }, 4000)
-      }, 4000)
-    }, 1000)
-  }
+  componentDidMount() {}
   state = {
     isVisible: false,
     isVisibleField: false,
@@ -132,15 +108,55 @@ export class Game extends React.Component {
     })
   }
 
-  hideModal() {
-    this.setState((prevState) => {
-      return { show: false }
-    })
-    if (this.audioToggle) {
-      audio.play()
-      this.audioToggle = false
+  showTutorial() {
+    this.flag = !this.flag
+    if (this.flag) {
+      for (var i = 0; i < this.timeouts.length; i++) {
+        clearTimeout(this.timeouts[i])
+      }
+      this.setState({
+        isVisible: false,
+        isVisibleArrows: false,
+        isVisibleCell: false,
+        isVisibleField: false,
+      })
+    } else {
+      this.timeouts = []
+      this.timeouts.push(
+        setTimeout(() => {
+          this.setState({
+            isVisible: true,
+            isVisibleField: true,
+          })
+        }, 0)
+      )
+      this.timeouts.push(
+        setTimeout(() => {
+          this.setState({
+            isVisibleField: false,
+            isVisibleCell: true,
+          })
+        }, 4000)
+      )
+      this.timeouts.push(
+        setTimeout(() => {
+          this.setState({
+            isVisibleCell: false,
+            isVisibleArrows: true,
+          })
+        }, 8000)
+      )
+      this.timeouts.push(
+        setTimeout(() => {
+          this.setState({
+            isVisibleArrows: false,
+            isVisible: false,
+          })
+        }, 12000)
+      )
     }
   }
+
   toggleMusic() {
     if (!this.audioToggle) {
       audio.pause()
@@ -212,21 +228,7 @@ export class Game extends React.Component {
               <Footer choosedNumber={this.state.choosedNumber} />
             </div>
             <div className="game-info">
-              <h1></h1>
-              <Modal show={!this.state.show} handleClose={this.hideModal}>
-                <p>
-                  Есть поле размером 3 на 3 ячейки. В начале игры в случайную
-                  ячейку помещается маркер(флажок). Далее генерируются 10
-                  «ходов» (возможные варианты «вверх», «влево», «вниз»,
-                  «вправо»). Игрок должен в уме «пройти» по этим ходам по
-                  лабиринту и указать конечную точку маркера. После ответа (клик
-                  на ячейку) идет проверка ответа. Если ответ введен
-                  неправильно(dislike) - указывается правильный ответ(like).
-                  Всегда предоставляется возможность начать новую игру ( по
-                  клику на кнопку «Новая игра»).
-                </p>
-              </Modal>
-              <button type="button" onClick={this.showModal}>
+              <button type="button" onClick={this.showTutorial}>
                 Инструкция
               </button>
 

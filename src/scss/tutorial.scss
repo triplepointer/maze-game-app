@@ -1,32 +1,32 @@
 .tutorial-field {
-    width: 350px;
-    height: 320px;
-    border: 5px solid rgb(0, 255, 85);
+    width: 324px;
+    height: 322px;
+    border: 5px solid #00ff55;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 59%);
+    transform: translate(-48%, 59%);
 }
 
 .tutorial-field-description {
     position: absolute;
-    color: rgb(0, 255, 85);
+    color: #00ff55;
     font-weight: 700;
     font-size: 30px;
     top: 0%;
     left: 37%;
-    transform: translate(-130px, -98px);
+    transform: translate(-125px, -105px);
 }
 
 .tutorial-cell-description {
     width: 300px;
     position: absolute;
-    color: rgb(0, 255, 85);
+    color: #00ff55;
     font-weight: 700;
     font-size: 30px;
     top: 0%;
     left: 37%;
-    transform: translate(-38px, -103px);
+    transform: translate(-38px, -105px);
 }
 
 .tutorial-arrows-description {
@@ -36,28 +36,28 @@
     font-size: 30px;
     top: 0%;
     left: -3%;
-    transform: translate(373px, -36px);
+    transform: translate(305px, -36px);
     width: 372px;
 }
 
 .tutorial-arrows {
-    width: 350px;
-    height: 110px;
-    border: 5px solid rgb(0, 255, 85);
+    width: 284px;
+    height: 94px;
+    border: 5px solid #00ff55;
     position: absolute;
     top: 0%;
     left: 50%;
-    transform: translate(-50%, 433%);
+    transform: translate(-137px, 523px);
 }
 
 .tutorial-cell {
-    width: 100px;
-    height: 100px;
-    border: 5px solid rgb(0, 255, 85);
+    width: 92px;
+    height: 92px;
+    border: 5px solid #00ff55;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-120%, 200%);
+    transform: translate(-127%, 221%);
 }
 
 .tutorial {

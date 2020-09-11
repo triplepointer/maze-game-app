@@ -2,6 +2,7 @@ import React from 'react'
 import { Board } from './Board'
 import { Header } from './Header'
 import { Footer } from './Footer'
+import $ from 'jquery'
 import posed from 'react-pose'
 import music from '../music/massive_attack_and_mos_def-i_against_i.mp3'
 var audio = new Audio(music)
@@ -109,8 +110,8 @@ export class Game extends React.Component {
   }
 
   showTutorial() {
-    this.flag = !this.flag
-    if (this.flag) {
+    $('#overlay').click(() => {
+      $('#overlay').fadeOut(300)
       for (var i = 0; i < this.timeouts.length; i++) {
         clearTimeout(this.timeouts[i])
       }
@@ -120,41 +121,50 @@ export class Game extends React.Component {
         isVisibleCell: false,
         isVisibleField: false,
       })
-    } else {
-      this.timeouts = []
-      this.timeouts.push(
-        setTimeout(() => {
-          this.setState({
-            isVisible: true,
-            isVisibleField: true,
-          })
-        }, 0)
-      )
-      this.timeouts.push(
-        setTimeout(() => {
-          this.setState({
-            isVisibleField: false,
-            isVisibleCell: true,
-          })
-        }, 4000)
-      )
-      this.timeouts.push(
-        setTimeout(() => {
-          this.setState({
-            isVisibleCell: false,
-            isVisibleArrows: true,
-          })
-        }, 8000)
-      )
-      this.timeouts.push(
-        setTimeout(() => {
-          this.setState({
-            isVisibleArrows: false,
-            isVisible: false,
-          })
-        }, 12000)
-      )
-    }
+    })
+    this.timeouts = []
+    this.timeouts.push(
+      setTimeout(() => {
+        this.setState({
+          isVisible: true,
+          isVisibleField: true,
+        })
+      }, 0)
+    )
+    this.timeouts.push(
+      setTimeout(() => {
+        this.setState({
+          isVisibleField: false,
+          isVisibleCell: true,
+        })
+      }, 4000)
+    )
+    this.timeouts.push(
+      setTimeout(() => {
+        this.setState({
+          isVisibleCell: false,
+          isVisibleArrows: true,
+        })
+      }, 8000)
+    )
+    this.timeouts.push(
+      setTimeout(() => {
+        this.setState({
+          isVisibleArrows: false,
+          isVisible: false,
+        })
+        $('#overlay').fadeOut(300)
+        for (var i = 0; i < this.timeouts.length; i++) {
+          clearTimeout(this.timeouts[i])
+        }
+        this.setState({
+          isVisible: false,
+          isVisibleArrows: false,
+          isVisibleCell: false,
+          isVisibleField: false,
+        })
+      }, 12000)
+    )
   }
 
   toggleMusic() {
@@ -228,7 +238,10 @@ export class Game extends React.Component {
               <Footer choosedNumber={this.state.choosedNumber} />
             </div>
             <div className="game-info">
-              <button type="button" onClick={this.showTutorial}>
+              <button
+                id="MicroCleanClick"
+                type="button"
+                onClick={this.showTutorial}>
                 Инструкция
               </button>
 
@@ -237,7 +250,16 @@ export class Game extends React.Component {
             </div>
           </div>
         </div>
+        <div id="overlay"></div>
       </div>
     )
   }
 }
+
+// Show MicroClean Details window
+$(function () {
+  $('#MicroCleanClick').click(function () {
+    $('#overlay').fadeIn(300)
+  })
+  // Remove blackout
+})

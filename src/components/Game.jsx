@@ -3,10 +3,21 @@ import { Board } from './Board'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Modal } from './Modal'
+import posed from 'react-pose'
 import music from '../music/massive_attack_and_mos_def-i_against_i.mp3'
 var audio = new Audio(music)
 audio.addEventListener('ended', () => {
   audio.play()
+})
+
+const BoxField = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+})
+
+const BigBox = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
 })
 export class Game extends React.Component {
   constructor(props) {
@@ -27,7 +38,37 @@ export class Game extends React.Component {
     this.onClickHere9 = this.onClickHere9.bind(this)
     this.toggleMusic = this.toggleMusic.bind(this)
   }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isVisible: !this.state.isVisible,
+        isVisibleField: !this.state.isVisibleField,
+      })
+      setTimeout(() => {
+        this.setState({
+          isVisibleField: !this.state.isVisibleField,
+          isVisibleCell: !this.state.isVisibleCell,
+        })
+        setTimeout(() => {
+          this.setState({
+            isVisibleCell: !this.state.isVisibleCell,
+            isVisibleArrows: !this.state.isVisibleArrows,
+          })
+          setTimeout(() => {
+            this.setState({
+              isVisibleArrows: !this.state.isVisibleArrows,
+              isVisible: !this.state.isVisible,
+            })
+          }, 4000)
+        }, 4000)
+      }, 4000)
+    }, 1000)
+  }
   state = {
+    isVisible: false,
+    isVisibleField: false,
+    isVisibleCell: false,
+    isVisibleArrows: false,
     show: true,
     isClicked: false,
     isClickedHere1: false,
@@ -110,6 +151,10 @@ export class Game extends React.Component {
     }
   }
   render() {
+    const { isVisible } = this.state
+    const { isVisibleField } = this.state
+    const { isVisibleCell } = this.state
+    const { isVisibleArrows } = this.state
     return (
       <div>
         <div className="game">
@@ -143,7 +188,7 @@ export class Game extends React.Component {
             </div>
             <div className="game-info">
               <h1></h1>
-              <Modal show={this.state.show} handleClose={this.hideModal}>
+              <Modal show={!this.state.show} handleClose={this.hideModal}>
                 <p>
                   Есть поле размером 3 на 3 ячейки. В начале игры в случайную
                   ячейку помещается маркер(флажок). Далее генерируются 10
@@ -165,6 +210,31 @@ export class Game extends React.Component {
             </div>
           </div>
         </div>
+        {isVisible ? (
+          <BigBox className="tutorial">
+            <BoxField
+              className="tutorial-field"
+              pose={isVisibleField ? 'visible' : 'hidden'}>
+              <p className="tutorial-field-description">Это игровое поле</p>
+            </BoxField>
+            <BoxField
+              className="tutorial-cell"
+              pose={isVisibleCell ? 'visible' : 'hidden'}>
+              <p className="tutorial-cell-description">
+                Это ячейка игрового поля
+              </p>
+            </BoxField>
+            <BoxField
+              className="tutorial-arrows"
+              pose={isVisibleArrows ? 'visible' : 'hidden'}>
+              <p className="tutorial-arrows-description">
+                Это стрелки, указывающие направления ходов
+              </p>
+            </BoxField>
+          </BigBox>
+        ) : (
+          ''
+        )}
       </div>
     )
   }

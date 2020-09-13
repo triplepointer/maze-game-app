@@ -3,22 +3,22 @@ import dislike from '../images/dislike.png'
 import like from '../images/like.png'
 import noise from '../music/noiseInstant.mp3'
 import $ from 'jquery'
-
+let timer = 0
 export function IsLike(props) {
   useEffect(() => {
+    debugger
     // Update the document title using the browser API
-    // debugger
-    setTimeout(() => {
-      const audio = new Audio(noise)
-      $('.scream').each(function (el) {
-        if ($('.scream:visible').length != 0) {
-          audio.play()
-        }
-      })
+    const audio = new Audio(noise)
+    // $('.scream').each(function (el) {
+    if ($('.scream:visible').length != 0 && timer === 0) {
+      timer = 1
+      audio.play()
       setTimeout(() => {
         $('.scream').css('display', 'none')
+        timer = 0
       }, 2000)
-    }, 0)
+    }
+    // })
   })
   return (
     <>
